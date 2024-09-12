@@ -1,6 +1,14 @@
 <template>
-  <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+  <div class="main">
+    <NuxtPage />
   </div>
 </template>
+
+<style>
+*,
+:root,
+body {
+  padding: 0;
+  margin: 0;
+}
+</style>
