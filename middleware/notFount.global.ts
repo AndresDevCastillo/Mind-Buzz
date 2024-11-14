@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware((to, from) => {
-  if (!to.matched.length) {
+  /* if (!to.matched.length) {
     return navigateTo("/login");
-  }
+  } */
 });

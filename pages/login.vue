@@ -3,6 +3,13 @@ const sesion = ref({
   username: null,
   password: null,
 });
+const router = useRouter();
+
+const loginRouter = () => {
+  router.push("/");
+};
+
+
 </script>
 
 <template>
@@ -21,7 +28,7 @@ const sesion = ref({
         toggle-mask
         :feedback="false"
       />
-      <Button class="w-full" label="Iniciar Sesión" />
+      <Button class="w-full" label="Iniciar Sesión" @click="loginRouter" />
 
       <NuxtLink to="/registrar" class="w-full">
         <Button class="w-full" label="Registrar" />
