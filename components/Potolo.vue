@@ -8,5 +8,6 @@ const potolos = await  usePotolos()
         <pre>
             {{ potolos }}
         </pre>
+        {}
     </div>
-</template>
+</template> 
