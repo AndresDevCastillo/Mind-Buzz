@@ -22,17 +22,16 @@ const responsiveOptions = ref([
   },
 ]);
 
-const images = ref([
-  "/img/a.jpeg",
-  "/img/b.jpeg",
-  "/img/c.jpeg",
-  "/img/d.jpeg",
-]);
+const carruselStore = useCarruselStore();
+
+const { getCarrusel } = carruselStore;
+
+imagenesCarrusel = getCarrusel();
 </script>
 
 <template>
   <Carousel
-    :value="images"
+    :value="imagenesCarrusel"
     :numVisible="4"
     :numScroll="3"
     :responsiveOptions="responsiveOptions"
@@ -44,7 +43,10 @@ const images = ref([
       >
         <div class="mb-4">
           <div class="relative mx-auto">
-            <img :src="slotProps.data" class="w-full aspect-square rounded" />
+            <img
+              :src="slotProps.data.url"
+              class="w-full aspect-square rounded"
+            />
           </div>
         </div>
       </div>
