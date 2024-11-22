@@ -7,7 +7,7 @@ const responsiveOptions = ref([
   },
   {
     breakpoint: "1199px",
-    numVisible: 3,
+    numVisible: 3,3
     numScroll: 1,
   },
   {
@@ -26,7 +26,7 @@ const carruselStore = useCarruselStore();
 
 const { getCarrusel } = carruselStore;
 
-imagenesCarrusel = getCarrusel();
+const imagenesCarrusel = getCarrusel();
 </script>
 
 <template>
