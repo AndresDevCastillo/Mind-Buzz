@@ -11,10 +11,20 @@
         </Editor>
     </div>
 </template>
-
+<template #footer>
+    <div class="flex gap-4 mt-1">
+      <Button
+        label="Cancel"
+        severity="secondary"
+        outlined
+        class="w-full"
+      />
+      <Button label="Post" class="w-full" />
+    </div>
+  </template>
+  
 <script setup>
 import { ref } from "vue";
 
 const value = ref('<div>Hello World!</div><div>PrimeVue <b>Editor</b> Rocks</div><div><br></div>');
 </script>
-
