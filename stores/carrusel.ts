@@ -10,17 +10,16 @@ export const useCarruselStore = defineStore({
     carruseles: [] as Carrusel[],
     carrusel: {} as Carrusel,
   }),
-  persist: {
-    storage: persistedState.localStorage,
-  },
+  persist: true,
   getters: {
-    getCarrusel: (state) => state.carruseles,
+    getCarrusels: (state) => state.carruseles,
     getCarrusel: (state) => state.carrusel,
   },
 
   actions: {
     async fetchImages() {
       const carrusel = await $fetch("/api/carrusel");
+      console.log(carrusel);
       this.carruseles = carrusel;
     },
   },

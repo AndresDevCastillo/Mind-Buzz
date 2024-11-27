@@ -24,9 +24,10 @@ const MyPreset = definePreset(
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    "@primevue/nuxt-module",
-    "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
+    "@primevue/nuxt-module",
+    "pinia-plugin-persistedstate/nuxt",
+    "@nuxtjs/tailwindcss",
   ],
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
