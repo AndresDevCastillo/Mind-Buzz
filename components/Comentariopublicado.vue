@@ -1,40 +1,17 @@
 <template>
-  <Card >
-         <template #title>
-           <div class="flex">
-             <Avatar
-               image="/img/daggi.jpg"
-               class="mr-2"
-               shape="circle"
-               alt="User avatar"
-             />
-             <span class="font-bold">Fujoshi 69 UwU</span>
-           </div>
-         </template>
-         <template #content>
-           <Editor editorStyle="height: 140px">
-             <template v-slot:toolbar>
-               <span class="ql-formats">
-                 <button v-tooltip.bottom="'Bold'" class="ql-bold"></button>
-                 <button v-tooltip.bottom="'Italic'" class="ql-italic"></button>
-                 <button
-                   v-tooltip.bottom="'Underline'"
-                   class="ql-underline"
-                 ></button>
-               </span>
-             </template>
-           </Editor>
-         </template>
-         <template #footer>
-           <div class="flex gap-4 mt-1">
-             <Button
-               label="Cancel"
-               severity="secondary"
-               outlined
-               class="w-full"
-             />
-             <Button label="Post" class="w-full" />
-           </div>
-         </template>
-       </Card>
- </template>
+  <div class=" w-5/6 max-w mx-auto p-4 bg-white rounded-lg shadow-md my-5">
+    <div v-for="(tweet, index) in tweets" :key="index" class="mb-4 border-b pb-4 last:border-none">
+      <Hilo :tweet="tweet" />
+    </div>
+  </div>
+</template>
+
+<script setup>
+
+const props = defineProps({
+  tweets: {
+    type: Array,
+    required: true,
+  },
+});
+</script>
