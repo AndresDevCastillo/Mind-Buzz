@@ -5,7 +5,7 @@ definePageMeta({
 
 const responsiveOptions = ref([
   {
-    breakpoint: "1401px",
+    breakpoint: "1400px",
     numVisible: 3,
     numScroll: 1,
   },
