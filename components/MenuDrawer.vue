@@ -30,7 +30,7 @@ const items = ref([
   {
     label: "Profile",
     items: [
-      { label: "Account", icon: "pi pi-user" },
+      { label: "Account", icon: "pi pi-user" , route: "/account"},
       { label: "Logout", icon: "pi pi-sign-out", route: "/login" },
     ],
   },
