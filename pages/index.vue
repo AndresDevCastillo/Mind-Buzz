@@ -38,9 +38,10 @@ const tweets = ref([
   {
     avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
     username: 'Fujoshi 69 UwU',
-    handle: 'juan_perez',
+    createTime:' Hace 1 hora',
     time: '2h',
     content: '¡Este es mi primer tweet! 🎉',
+    views: 123,
     retweets: 5,
     likes: 20,
     replies: [
@@ -76,6 +77,8 @@ const tweets = ref([
     ],
   },
 ]);
+
+
 </script>
 <template>
   <div class="index">

@@ -57,6 +57,7 @@ const deletePost = ref(false);
             </div>
             <SplitButton label="Opciones" variant="text" menuButtonIcon="pi pi-ellipsis-v"  :model="actionsOptions" />
           </div>
+          <p>{{ tweet.createTime }}</p>
         </template>
         <template #content>
           <Editor  v-model="tweet.content">
