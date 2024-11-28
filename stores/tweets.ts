@@ -36,7 +36,17 @@ export const useTweetsStore = defineStore({
     async getTweetsApi(){
         const tweetsDataApi = await  $fetch('/api/tweets')
         this.tweets = tweetsDataApi;
+    
+    },
+
+    createReply(index: number, reply: Reply){
+      this.tweets[index].replies?.push(reply);
+    },
+
+    deleteReply(index:number, indexReply: number){
+      this.tweets[index].replies?.splice(indexReply, 1);
     }
+
   }
 });
 

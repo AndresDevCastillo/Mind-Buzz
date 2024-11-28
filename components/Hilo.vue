@@ -4,7 +4,16 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  index: {
+    type: Number,
+    required: true
+  }
 });
+
+
+const updateTweets = inject('updateTweets')
+
+
 
 const actionsOptions = [
       {
@@ -25,9 +34,7 @@ const actionsOptions = [
 ];
 
 
-const deleteReply = (index) => {
-  replyChat.value.chat.splice(index, 1)
-}
+
 
 const clickLike = ref(false);
 const allowDelete = ref(false);
@@ -35,10 +42,15 @@ const dialogReply = ref(false);
 
 const replyChat = ref({
   temp: '',
-  chat: [],
 });
 
 const deletePost = ref(false);
+
+const tweetsStore = useTweetsStore()
+
+const { createReply, deleteReply } = tweetsStore;
+
+
 </script>
 
 <template>
@@ -48,7 +60,7 @@ const deletePost = ref(false);
           <div class="flex justify-between">
             <div class="flex ">
               <Avatar
-              image="/img/daggi.jpg"
+              :image="tweet.avatar"
               class="mr-2"
               shape="circle"
               alt="User avatar"
@@ -77,19 +89,22 @@ const deletePost = ref(false);
             <Button icon="pi pi-reply" aria-label="Filter" @click="dialogReply = true" />
           </div>
           <div class="flex flex-col gap-3">
-               <div v-for="(reply, index) in replyChat.chat">
+               <div v-for="(reply, index) in tweet.replies">
                 <Card>
                     <template #content>
                         <div class="flex content-center gap-2">
-                          <Button v-if="allowDelete" icon="pi pi-trash" severity="danger" @click="deleteReply(index)" />
+                          <Button v-if="allowDelete" icon="pi pi-trash" severity="danger" @click="() => {
+                            deleteReply(props.index,index)
+                            updateTweets()
+                          }" />
                           <Avatar
-                            image="/img/daggi.jpg"
+                            :image="reply.avatar"
                             class="mr-2"
                             shape="circle"
                             alt="User avatar"
                           />
-                          <p class="font-bold">{{ tweet.username }}: </p>
-                          <div v-html="reply"></div>
+                          <p class="font-bold">{{ reply.username }}: </p>
+                          <div v-html="reply.content"></div>
                         </div>
                     </template>
                 </Card>
@@ -124,9 +139,19 @@ const deletePost = ref(false);
               class="w-full"
             />
             <Button label="Reply" class="w-full" @click="() => {
-              replyChat.chat.push(replyChat.temp);
-              replyChat.temp = '';
+              createReply(
+              props.index,  
+              {
+                avatar: '/img/daggi.jpg',
+                username: 'Fujoshi 69 UwU',
+                createTime: 'Ahora mismo',
+                content: replyChat.temp,
+                retweets: 0,
+                likes: 0,
+              })
+              replyChat.temp = ''
               dialogReply = false;
+              updateTweets()
             }" />
             
           </div>

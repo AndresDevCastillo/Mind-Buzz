@@ -61,6 +61,43 @@ export default defineEventHandler( event => {
             },
           ],
         },
+        {
+          avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+          username: 'Andresito trululu',
+          content: '¡Este es mi primer tweet! 🎉',
+          createTime: '3 de marzo 2023',
+          views: 123,
+          retweets: 5,
+          likes: 20,
+          replies: [
+            {
+              avatar: 'https://randomuser.me/api/portraits/women/32.jpg',
+              username: 'Ana Gómez',
+              createTime: '1h',
+              content: '¡Felicidades por tu primer tweet! 😊',
+              retweets: 2,
+              likes: 10,
+              replies: [
+                {
+                  avatar: 'https://randomuser.me/api/portraits/men/25.jpg',
+                  username: 'Carlos Ruiz',
+                  createTime: '30m',
+                  content: '¡Estoy de acuerdo con Ana! 👍',
+                  retweets: 1,
+                  likes: 5,
+                },
+              ],
+            },
+            {
+              avatar: 'https://randomuser.me/api/portraits/men/98.jpg',
+              username: 'Luis Fernández',
+              createTime: '45m',
+              content: '¡Bienvenido a Twitter, Juan! 🎉',
+              retweets: 3,
+              likes: 8,
+            },
+          ],
+        },
       ];
 
       return tweets;
